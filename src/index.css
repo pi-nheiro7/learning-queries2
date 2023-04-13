@@ -1,0 +1,11 @@
+.center{
+  margin: 0 auto;
+  text-align: center;
+}
+.fit-content{
+  width: fit-content !important;
+}
+
+.mt-5rem{
+  margin-top: 5rem;
+}
