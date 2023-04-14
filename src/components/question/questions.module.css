@@ -1,0 +1,20 @@
+.questionCard{
+  display: block;
+  width: 100px;
+  height: 100px;
+  border-radius: 5px;
+  border: 1px solid white;
+  text-decoration: none;
+  color: white;
+}
+
+.questionCard img{
+  margin-top: 5px;
+  width: 60px;
+}
+
+.questionCard:hover{
+  border: 1px solid gray;
+  color: white;
+  cursor: pointer;
+}

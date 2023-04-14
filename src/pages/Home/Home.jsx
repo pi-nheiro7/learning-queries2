@@ -1,4 +1,5 @@
 import React from 'react';
+import QuestionCard from '../../components/question/QuestionCard';
 import { AuthGoogleContext } from '../../context/AuthGoogle';
 import style from './Home.module.css';
 import learningqLogo from '/logo_whitebg.svg';
@@ -38,6 +39,8 @@ export default function Home() {
 
       <div className="container center">
         <h1> Questões</h1>
+
+        <QuestionCard img={learningqLogo} title='Select 1' />
       </div>
     </>
   );
