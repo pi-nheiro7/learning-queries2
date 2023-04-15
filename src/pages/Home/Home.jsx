@@ -23,7 +23,7 @@ export default function Home() {
               className={style.imgUser}
               src={user.photoURL}
               alt="foto"
-              referrerpolicy="no-referrer"
+              referrerPolicy="no-referrer"
             />
             <span> {user.displayName} </span>
           </li>
