@@ -1,6 +1,7 @@
 import React from 'react'
 import Box from '../../components/box/Box'
 import style from './Question.module.css'
+import ErrorMessage from '../../components/error-message/ErrorMessage';
 
 export default function Question() {
   return (
@@ -8,6 +9,7 @@ export default function Question() {
       <h1>Select 1</h1>
       <p>Observe o Schema abaixo e faça o que se pede</p>
       <img
+        className={style.imgContexto}
         src="https://www.premierpet.com.br/wp-content/uploads/2020/10/banner-gato-3.jpg"
         alt="imagem qualuqer"
       />
@@ -18,14 +20,35 @@ export default function Question() {
         sequência correta.
       </h5>
 
-      <div className="dropzone"></div>
+      <ErrorMessage />
 
-      <div className="answerzone">
+      <div id={style.dropzone}></div>
+
+      <div id={style.answerzone}>
+        <Box />
+        <Box />
+        <Box />
+        <Box />
+        <Box />
+        <Box />
+        <Box />
+        <Box />
+        <Box />
+        <Box />
+        <Box />
+        <Box />
+        <Box />
+        <Box />
+        <Box />
+        <Box />
         <Box />
       </div>
 
-      <button>Voltar</button>
-      <button>Confirmar</button>
+      <div className="grid">
+        <button className="outline">Voltar</button>
+        <button className="secondary outline">Resetar</button>
+        <button className="contrast">Confirmar</button>
+      </div>
     </div>
   );
 }

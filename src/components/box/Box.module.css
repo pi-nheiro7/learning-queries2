@@ -1,0 +1,10 @@
+.box{
+    display: table-cell;
+    width: fit-content;
+    height: 57px;
+    border: 1px solid white;
+    padding: 0 10px 0 10px;
+    vertical-align: middle;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}

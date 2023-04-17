@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 import { AuthGoogleContext } from '../../context/AuthGoogle';
 import googleLogo from '/google-logo.svg'
 import learningqLogo from '/logo_whitebg.svg';
@@ -7,6 +7,7 @@ import style from './Login.module.css'
 
 export default function Login() {
   const { signInGoogle, signed } = React.useContext(AuthGoogleContext);
+  
 
   async function loginGoogle() {
     await signInGoogle();
@@ -34,7 +35,7 @@ export default function Login() {
         </div>
       </div>
     );
-  } else {
+  } else{
     return <Navigate to="/home" />
   }
 }

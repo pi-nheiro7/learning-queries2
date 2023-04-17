@@ -1,8 +1,37 @@
 .question{
-  margin-top: 3rem !important;
+  margin-top: 1rem !important;
 }
 
-img{
+.question p{
+  margin-bottom: 5px;
+}
+
+.question h1{
+  margin-bottom: 10px;
+}
+
+.question h5{
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+/* .imgContexto{
   width: 350px;
   height: 100px;
+} */
+
+#dropzone {
+  width: 100%;
+  height: 7rem;
+  border: 1px solid white;
+  margin-bottom: 1rem;
+
+}
+
+#answerzone {
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 1px solid white;
+  margin-bottom: 2rem;
+  padding-bottom: 10px;
 }
