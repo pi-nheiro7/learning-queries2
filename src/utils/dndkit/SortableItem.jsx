@@ -9,14 +9,15 @@ const SortableItem = (props) => {
   const itemStyle = {
     transform: CSS.Transform.toString(transform),
     transition,
-    width: 100,
-    height: 30,
-    textAlign: 'center',
-    border: '1px solid gray',
-    borderRadius: 5,
-    userSelect: 'none',
-    cursor: 'grab',
-    boxSizing: 'border-box',
+    display: ' table-cell',
+    width: 'fit-content',
+    height: '40px',
+    border: '1px solid white',
+    padding: '0 10px 0 10px',
+    verticalAlign: 'middle',
+    marginRight: '10px',
+    marginBottom: '5px',
+    backgroundColor: '#10181f00',
   };
 
   return (

@@ -8,22 +8,26 @@ import React from 'react';
 
 export const Droppable = ({ id, items }) => {
   const { setNodeRef } = useDroppable({ id });
-
-  const height = id === 'dropzone' ? '150px' : 'auto';
-
-  const droppableStyle = {
-    margin: '10px auto',
-    width: '90%',
-    padding: '10px 10px',
-    border: '1px solid black',
-    borderRadius: '5px',
-    minWidth: 110,
+  
+  let droppableStyle = {
+    width: '100%',
+    height: '7rem',
+    border: '1px solid white',
+    marginBottom: '1rem',
+    padding: '10px',
     display: 'flex',
-    gap: '10px',
     flexWrap: 'wrap',
-    minHeight: '60px',
-    height: height,
   };
+
+  if (id == 'answers') {
+    droppableStyle = {
+      display: 'flex',
+      flexWrap: 'wrap',
+      borderBottom: '1px solid white',
+      marginBottom: '2rem',
+      paddingBottom: '10px',
+    };
+  }
 
   return (
     <SortableContext

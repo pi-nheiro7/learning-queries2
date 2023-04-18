@@ -20,7 +20,7 @@
   height: 100px;
 } */
 
-#dropzone {
+.dropzone {
   width: 100%;
   height: 7rem;
   border: 1px solid white;
@@ -28,7 +28,7 @@
 
 }
 
-#answerzone {
+.answerzone {
   display: flex;
   flex-wrap: wrap;
   border-bottom: 1px solid white;
