@@ -15,6 +15,7 @@ import { GenerateQuery } from '../../utils/query/GenerateQuery';
 import SortableItem from '../../utils/dndkit/SortableItem';
 import { arrayMove } from '../../utils/dndkit/array';
 import { moveBetweenContainers } from '../../utils/dndkit/handlers/MoveBetweenContainers';
+import { useLocation } from 'react-router-dom';
 
 const data = 'SELECT * FROM jorginho';
 
@@ -28,6 +29,8 @@ const droppableStyle = {
 
 export default function Question() {
 
+  let {state} = useLocation();
+  console.log(state);
 
   function handleClick() {
     console.log('cheguei auqi');
@@ -173,7 +176,7 @@ export default function Question() {
   }
 
 
-
+  
 
 
   return (
@@ -182,7 +185,7 @@ export default function Question() {
       <p>Observe o Schema abaixo e faça o que se pede</p>
       <img
         className={style.imgContexto}
-        src="https://www.premierpet.com.br/wp-content/uploads/2020/10/banner-gato-3.jpg"
+        src={state.img}
         alt="imagem qualuqer"
       />
 

@@ -59,7 +59,7 @@ export default function Home() {
         {
           questions.map(question => {
             return (
-              <QuestionCard key={question.id} img={question.thumb} title={question.title} />
+              <QuestionCard key={question.id} {...question} />
             )
           })
         }
