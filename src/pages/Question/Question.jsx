@@ -15,7 +15,7 @@ import { GenerateQuery } from '../../utils/query/GenerateQuery';
 import SortableItem from '../../utils/dndkit/SortableItem';
 import { arrayMove } from '../../utils/dndkit/array';
 import { moveBetweenContainers } from '../../utils/dndkit/handlers/MoveBetweenContainers';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const data = 'SELECT * FROM jorginho';
 
@@ -47,13 +47,12 @@ export default function Question() {
     answers: [],
   });
 
-  const [correct, setCorrect] = useState(false);
-  const [incorrect, setIncorrect] = useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     setItems((items) => ({
       ...items,
-      answers: rightQuery,
+      answers: query,
     }));
     // console.log(items);
   }, [data]);
@@ -156,6 +155,17 @@ export default function Question() {
     }
   };
 
+  function reset(){
+    const response = confirm("Tem certeza que deseja resetar? além de perder seu progresso, as respostas serão embaralhadas.")
+    if(response){
+      setItems((items) => ({
+        dropzone: [],
+        answers: query,
+      }));
+    }
+    
+  }
+
   // if (loading) return <SpinnerComponent />;
   // if (error) return <h2>{error}</h2>;
 
@@ -165,13 +175,10 @@ export default function Question() {
     let correctQuery = [...data?.query].join('');
 
     if (dropzoneString.toLowerCase() == correctQuery.toLowerCase()) {
-      // console.log('boa');
-      setCorrect(() => true);
-      setIncorrect(() => false);
+      console.log('boa');
+      
     } else {
-      // console.log('tente novamente');
-      setCorrect(() => false);
-      setIncorrect(() => true);
+      console.log('tente novamente');
     }
   }
 
@@ -195,7 +202,7 @@ export default function Question() {
         sequência correta.
       </h5>
 
-      <ErrorMessage />
+      {error && <ErrorMessage />}
 
       <DndContext
         sensors={sensors}
@@ -207,10 +214,7 @@ export default function Question() {
           {/* {Object.keys(items).map((group) => (
               <Droppable id={group} items={items[group]} key={group} />
             ))} */}
-          <Droppable
-            id="dropzone"
-            items={items.dropzone}
-          />
+          <Droppable id="dropzone" items={items.dropzone} />
           <Droppable
             className={style.answerzone}
             id="answers"
@@ -223,9 +227,11 @@ export default function Question() {
       </DndContext>
 
       <div className="grid">
-        <button className="outline">Voltar</button>
-        <button className="secondary outline">Resetar</button>
-        <button className="contrast">Confirmar</button>
+        <a href="/home">
+          <button className="outline">Voltar</button>
+        </a>
+        <button className="secondary outline" onClick={reset}>Resetar</button>
+        <button className="contrast" onClick={handleAnswer}>Confirmar</button>
       </div>
     </div>
   );
