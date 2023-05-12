@@ -15,9 +15,7 @@ import { GenerateQuery } from '../../utils/query/GenerateQuery';
 import SortableItem from '../../utils/dndkit/SortableItem';
 import { arrayMove } from '../../utils/dndkit/array';
 import { moveBetweenContainers } from '../../utils/dndkit/handlers/MoveBetweenContainers';
-import { Link, useLocation } from 'react-router-dom';
-
-const data = 'SELECT * FROM jorginho';
+import { useNavigate, redirect, useLocation } from 'react-router-dom';
 
 
 const droppableStyle = {
@@ -29,8 +27,10 @@ const droppableStyle = {
 
 export default function Question() {
 
-  let {state} = useLocation();
-  console.log(state);
+  const navigate = useNavigate();
+
+  let data = useLocation().state;
+  console.log(data);
 
   function handleClick() {
     console.log('cheguei auqi');
@@ -39,7 +39,7 @@ export default function Question() {
   }
   // console.log(data);
 
-  const rightQuery = data ? data.split(' ') : [];
+  const rightQuery = data ? data.query.split(' ') : [];
   let query = GenerateQuery(rightQuery);
 
   const [items, setItems] = useState({
@@ -166,24 +166,20 @@ export default function Question() {
     
   }
 
-  // if (loading) return <SpinnerComponent />;
-  // if (error) return <h2>{error}</h2>;
+
 
   function handleAnswer(e) {
     e.PreventDefault;
     let dropzoneString = items?.dropzone.join(' ');
-    let correctQuery = [...data?.query].join('');
+    console.log(data.query + ' | ' + dropzoneString);
 
-    if (dropzoneString.toLowerCase() == correctQuery.toLowerCase()) {
-      console.log('boa');
-      
+    if (dropzoneString.toLowerCase() == data.query.toLowerCase()) {
+      navigate('/home');
     } else {
-      console.log('tente novamente');
+      setError(true)
     }
   }
 
-
-  
 
 
   return (
@@ -191,8 +187,8 @@ export default function Question() {
       <h1>Select 1</h1>
       <p>Observe o Schema abaixo e faça o que se pede</p>
       <img
-        className={style.imgContexto}
-        src={state.img}
+        className={data.imgContexto}
+        src={data.img}
         alt="imagem qualuqer"
       />
 
