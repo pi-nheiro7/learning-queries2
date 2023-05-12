@@ -7,6 +7,7 @@ import { app } from '../../services/firebaseConfig';
 import { getFirestore, getDocs, collection } from 'firebase/firestore'
 
 export default function Home() {
+  const [loading, setLoading] = React.useState(false);
   const { user, signOut } = React.useContext(AuthGoogleContext);
 
   const [questions, setQuestions] = React.useState([])
@@ -16,9 +17,10 @@ export default function Home() {
 
   useEffect(() => {
     const getQuestions = async () => {
+      setLoading(true);
       const data = await getDocs(useCollectionRef);
       setQuestions(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-      console.log(questions);
+      setLoading(false);
     }
     getQuestions()
   }, [])
@@ -55,16 +57,14 @@ export default function Home() {
 
       <div className="container center">
         <h1> Questões</h1>
-
-        {
-          questions.map(question => {
-            return (
-              <QuestionCard key={question.id} {...question} />
-            )
-          })
-        }
-
-        
+        {loading && (
+          <a href="#" aria-busy="true">
+            Buscando as questões, calminha aí!!
+          </a>
+        )}
+        {questions.map((question) => {
+          return <QuestionCard key={question.id} {...question} />;
+        })}
       </div>
     </>
   );

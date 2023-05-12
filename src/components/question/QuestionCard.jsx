@@ -2,7 +2,7 @@ import React from 'react'
 import style from './questions.module.css'
 import { Link } from 'react-router-dom'
 
-export default function QuestionCard({thumb, title, img, id, is_done, query}) {
+export default function QuestionCard({thumb, title, img, id, query}) {
   return (
     <Link
       to={`/home/question/${id}`}

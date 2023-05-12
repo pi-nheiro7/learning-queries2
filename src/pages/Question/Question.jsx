@@ -189,7 +189,7 @@ export default function Question() {
       <img
         className={data.imgContexto}
         src={data.img}
-        alt="imagem qualuqer"
+        alt="imagem qualquer"
       />
 
       <h5>Busque todos os dados da tabela "usuários"</h5>
