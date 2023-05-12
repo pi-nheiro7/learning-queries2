@@ -48,6 +48,7 @@ export default function Question() {
   });
 
   const [error, setError] = useState(false);
+  const [msg, setMsg] = useState(false);
 
   useEffect(() => {
     setItems((items) => ({
@@ -174,9 +175,14 @@ export default function Question() {
     console.log(data.query + ' | ' + dropzoneString);
 
     if (dropzoneString.toLowerCase() == data.query.toLowerCase()) {
-      navigate('/home');
+      setError(false)
+      setMsg(true);
+      setTimeout(() => {
+        navigate('/home')
+      }, 1000);
     } else {
       setError(true)
+      setMsg(false);
     }
   }
 
@@ -229,6 +235,7 @@ export default function Question() {
         <button className="secondary outline" onClick={reset}>Resetar</button>
         <button className="contrast" onClick={handleAnswer}>Confirmar</button>
       </div>
+      {msg && <p><mark>Parabéns, você será redirecionado para a tela principal em 1s.</mark></p>}
     </div>
   );
 }
