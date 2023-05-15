@@ -179,7 +179,7 @@ export default function Question() {
       setMsg(true);
       setTimeout(() => {
         navigate('/home')
-      }, 1000);
+      }, 2000);
     } else {
       setError(true)
       setMsg(false);
@@ -198,11 +198,11 @@ export default function Question() {
         alt="imagem qualquer"
       />
 
-      <h5>Busque todos os dados da tabela "usuários"</h5>
-      <h5>
+      <h5>{data.description}</h5>
+      <h6>
         Para realizar a tarefa, arraste os blocos da linha para a caixa na
         sequência correta.
-      </h5>
+      </h6>
 
       {error && <ErrorMessage />}
 
