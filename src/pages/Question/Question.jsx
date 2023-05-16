@@ -235,7 +235,7 @@ export default function Question() {
         <button className="secondary outline" onClick={reset}>Resetar</button>
         <button className="contrast" onClick={handleAnswer}>Confirmar</button>
       </div>
-      {msg && <p><mark>Parabéns, você será redirecionado para a tela principal em 1s.</mark></p>}
+      {msg && <p><mark>Parabéns, você será redirecionado para a tela principal em 2s.</mark></p>}
     </div>
   );
 }
