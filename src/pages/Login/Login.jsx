@@ -31,7 +31,7 @@ export default function Login() {
         </div>
         <div className={'center '+ style.sobre}>
           <p>Faça login com o Google</p>
-          <a href="#">Sobre este site</a>
+          <a href="#">Sobre este site.</a>
         </div>
       </div>
     );

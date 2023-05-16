@@ -62,10 +62,15 @@ export default function Home() {
             Buscando as questões, calminha aí!!
           </a>
         )}
-        {questions.map((question) => {
-          return <QuestionCard key={question.id} {...question} />;
-        })}
+        <div className="grid">
+          {questions.map((question) => {
+            return <QuestionCard key={question.id} {...question} />;
+          })}
+        </div>
       </div>
+      <footer>
+        <a href="#">Sobre este site.</a>
+      </footer>
     </>
   );
 }
