@@ -15,7 +15,7 @@ import { GenerateQuery } from '../../utils/query/GenerateQuery';
 import SortableItem from '../../utils/dndkit/SortableItem';
 import { arrayMove } from '../../utils/dndkit/array';
 import { moveBetweenContainers } from '../../utils/dndkit/handlers/MoveBetweenContainers';
-import { useNavigate, redirect, useLocation } from 'react-router-dom';
+import { useNavigate, redirect, useLocation, Link } from 'react-router-dom';
 
 
 const droppableStyle = {
@@ -192,11 +192,7 @@ export default function Question() {
     <div className={`container center ${style.question}`}>
       <h1>Select 1</h1>
       <p>Observe o Schema abaixo e faça o que se pede</p>
-      <img
-        className={data.imgContexto}
-        src={data.img}
-        alt="imagem qualquer"
-      />
+      <img className={data.imgContexto} src={data.img} alt="imagem qualquer" />
 
       <h5>{data.description}</h5>
       <h6>
@@ -229,13 +225,24 @@ export default function Question() {
       </DndContext>
 
       <div className="grid">
-        <a href="/home">
+        <Link to={`/home`}>Voltar</Link>
+        {/* <a href="/">
           <button className="outline">Voltar</button>
-        </a>
-        <button className="secondary outline" onClick={reset}>Resetar</button>
-        <button className="contrast" onClick={handleAnswer}>Confirmar</button>
+        </a> */}
+        <button className="secondary outline" onClick={reset}>
+          Resetar
+        </button>
+        <button className="contrast" onClick={handleAnswer}>
+          Confirmar
+        </button>
       </div>
-      {msg && <p><mark>Parabéns, você será redirecionado para a tela principal em 2s.</mark></p>}
+      {msg && (
+        <p>
+          <mark>
+            Parabéns, você será redirecionado para a tela principal em 2s.
+          </mark>
+        </p>
+      )}
     </div>
   );
 }
