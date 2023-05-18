@@ -225,10 +225,10 @@ export default function Question() {
       </DndContext>
 
       <div className="grid">
-        <Link to={`/home`}>Voltar</Link>
-        {/* <a href="/">
+        {/* <Link to={`/home`}>Voltar</Link> */}
+        <a href="/">
           <button className="outline">Voltar</button>
-        </a> */}
+        </a>
         <button className="secondary outline" onClick={reset}>
           Resetar
         </button>
